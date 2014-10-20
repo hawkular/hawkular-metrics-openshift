@@ -1,0 +1,10 @@
+#!/bin/bash
+# The logic to start up your application should be put in this
+# script. The application will work only if it binds to
+# $OPENSHIFT_INTERNAL_IP:8080
+set -x
+cd $OPENSHIFT_DATA_DIR/cassandra
+bin/cassandra
+export CQLSH_HOST=$OPENSHIFT_DIY_IP
+export CQLSH_PORT=19160
+sleep 30
