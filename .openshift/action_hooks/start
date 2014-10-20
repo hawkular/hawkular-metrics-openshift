@@ -7,4 +7,5 @@ cd $OPENSHIFT_DATA_DIR/cassandra
 bin/cassandra
 export CQLSH_HOST=$OPENSHIFT_DIY_IP
 export CQLSH_PORT=19160
+exoirt CQL_PORT=19042
 sleep 30
