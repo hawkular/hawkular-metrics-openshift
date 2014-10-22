@@ -1,5 +1,5 @@
 Name: rhq-metrics
-Cartridge-Short-Name: rhq-metrics
+Cartridge-Short-Name: rhqmetrics
 Display-Name: RHQ Metrics
 Description: "RHQ Metrics"
 Version: '0.2.4'
