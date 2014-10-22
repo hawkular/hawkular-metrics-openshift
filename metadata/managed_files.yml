@@ -1,8 +1,4 @@
 ---
-snapshot_exclusions:
-- ~/wildfly/versions/8
-- ~/wildfly/modules
-- ~/wildfly/usr/lib/jvm
 locked_files:
 - bin/
 - bin/*
@@ -12,11 +8,3 @@ locked_files:
 - metadata/*
 - hooks/
 - hooks/*
-- env/
-- env/OPENSHIFT_WILDFLY_DIR
-- env/OPENSHIFT_WILDFLY_LOG_DIR
-- env/OPENSHIFT_WILDFLY_JDK*
-- env/OPENSHIFT_WILDFLY_VERSION
-- env/M2_HOME
-- usr/lib/jvm/
-- usr/lib/jvm/*
