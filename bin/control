@@ -3,17 +3,17 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
-   #echo "Starting RHQ Metrics cartridge"
-   #cd $OPENSHIFT_DATA_DIR/cassandra
-   #bin/cassandra
-   #export CQLSH_HOST=$OPENSHIFT_RHQM_IP
-   #export CQLSH_PORT=19160
-   #export CQL_PORT=19042
+   echo "Starting RHQ Metrics cartridge"
+   cd $OPENSHIFT_DATA_DIR/cassandra
+   bin/cassandra
+   export CQLSH_HOST=$OPENSHIFT_RHQM_IP
+   export CQLSH_PORT=19160
+   export CQL_PORT=19042
 }
 
 function stop() {
    echo "Stopping RHQ Metrics cartridge"
-   #kill `ps -ef | grep cassandra | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+   kill `ps -ef | grep cassandra | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
 }
 
 function restart() {
