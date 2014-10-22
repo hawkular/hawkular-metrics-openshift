@@ -20,6 +20,3 @@ locked_files:
 - env/M2_HOME
 - usr/lib/jvm/
 - usr/lib/jvm/*
-processed_templates:
-- 'metadata/jenkins_shell_command.erb'
-- 'metadata/jenkins_artifacts_glob.erb'
