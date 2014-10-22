@@ -26,7 +26,7 @@ else
 	sed -ig 's,7001,17001,' cassandra.yaml
 	sed -ig 's,9160,19160,' cassandra.yaml
 	sed -ig 's/localhost/'$OPENSHIFT_RHQM_IP'/g' cassandra.yaml
-	sed -ig 's,/var/log/cassandra,$HOME/app-root/data/cassandra-data,' log4j-server.properties
+	#sed -ig 's,/var/log/cassandra,$HOME/app-root/data/cassandra-data,' log4j-server.properties
 	sed -ig 's,${max_sensible_yg_in_mb}M,256M,' cassandra-env.sh
 	sed -ig 's,${desired_yg_in_mb}M,256M,' cassandra-env.sh
 	sed -ig '/jmxremote/s/^/#/' cassandra-env.sh
