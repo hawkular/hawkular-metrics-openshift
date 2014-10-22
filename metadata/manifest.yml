@@ -28,6 +28,3 @@ Endpoints:
   Public-Port-Name: PROXY_PORT
   Protocols:
   - http
-  - ws
-  Options:
-    primary: true
