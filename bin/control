@@ -9,6 +9,7 @@ function start() {
    export CQLSH_HOST=$OPENSHIFT_RHQM_IP
    export CQLSH_PORT=19160
    export CQL_PORT=19042
+   sleep 45
 }
 
 function stop() {
