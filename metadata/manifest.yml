@@ -11,6 +11,7 @@ Cartridge-Version: '0.0.1'
 Cartridge-Vendor: jboss
 Categories:
   - service
+  - web_framework
 Website: https://github.com/rhq-project/rhq-metrics
 Cart-Data:
   - Key: OPENSHIFT_WILDFLY_LOG_DIR
