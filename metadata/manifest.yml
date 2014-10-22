@@ -18,9 +18,6 @@ Provides:
 Scaling:
   Min: 1
   Max: -1
-Group-Overrides:
-- components:
-  - web-proxy
 Endpoints:
 - Private-IP-Name: IP
   Private-Port-Name: PORT
