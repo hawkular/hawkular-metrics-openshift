@@ -4,12 +4,13 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
    echo "Starting RHQ Metrics cartridge"
-   cd $OPENSHIFT_DATA_DIR/cassandra
-   bin/cassandra
+   $OPENSHIFT_DATA_DIR/cassandra/bin/cassandra
    export CQLSH_HOST=$OPENSHIFT_RHQM_IP
    export CQLSH_PORT=19160
    export CQL_PORT=19042
    sleep 45
+
+   $OPENSHIFT_DATA_DIR/wildfly/bin/standalone.sh -b $OPENSHIFT_RHQM_IP
 }
 
 function stop() {
