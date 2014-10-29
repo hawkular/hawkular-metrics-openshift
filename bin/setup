@@ -41,3 +41,13 @@ else
    rm *.zip
    mv wildfly-* wildfly
 fi
+
+
+RHQ_METRICS_VERSION='0.2.3.20141020-M4'
+if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
+then
+   cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
+   curl -OL "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${RHQ_METRICS_VERSION}/rest-servlet-${RHQ_METRICS_VERSION}.war"
+   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${RHQ_METRICS_VERSION}/metrics-console-${RHQ_METRICS_VERSION}.war"
+   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${RHQ_METRICS_VERSION}/explorer-${RHQ_METRICS_VERSION}.war"
+fi
