@@ -38,4 +38,6 @@ else
 	cd $OPENSHIFT_DATA_DIR
 	curl -OL http://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.zip
 	unzip wildfly-8.1.0.Final.zip
+   rm *.zip
+   mv wildfly-* wildfly
 fi
