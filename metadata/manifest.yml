@@ -25,3 +25,9 @@ Endpoints:
   Public-Port-Name: PROXY_PORT
   Protocols:
   - http
+  - ws
+  Mappings:
+  - Frontend: ''
+    Backend: ''
+    Options:
+      websocket: true
