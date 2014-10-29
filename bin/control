@@ -10,7 +10,7 @@ function start() {
    export CQL_PORT=19042
    sleep 45
 
-   $OPENSHIFT_DATA_DIR/wildfly/bin/standalone.sh -b $OPENSHIFT_RHQM_IP
+   $OPENSHIFT_DATA_DIR/wildfly/bin/standalone.sh -b $OPENSHIFT_RHQM_IP 2>&1 &
 }
 
 function stop() {
