@@ -10,12 +10,13 @@ function start() {
    export CQL_PORT=19042
    sleep 15
 
-   $OPENSHIFT_DATA_DIR/wildfly/bin/standalone.sh -b $OPENSHIFT_RHQM_IP 2>&1 &
+   $OPENSHIFT_DATA_DIR/wildfly/bin/standalone.sh -b $OPENSHIFT_RHQM_IP -bmanagement=$OPENSHIFT_RHQM_IP -Drhq-metrics.backend=mem 2>&1 &
 }
 
 function stop() {
    echo "Stopping RHQ Metrics cartridge"
    kill `ps -ef | grep cassandra | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+   kill `ps -ef | grep java | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
 }
 
 function restart() {
