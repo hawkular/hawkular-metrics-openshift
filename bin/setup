@@ -26,8 +26,8 @@ else
 	sed -ig 's,7001,17001,' cassandra.yaml
 	sed -ig 's,9160,19160,' cassandra.yaml
 	sed -ig 's/localhost/'$OPENSHIFT_RHQM_IP'/g' cassandra.yaml
-	sed -ig 's,${max_sensible_yg_in_mb}M,180M,' cassandra-env.sh
-	sed -ig 's,${desired_yg_in_mb}M,180M,' cassandra-env.sh
+   sed -ig 's,#MAX_HEAP_SIZE=.*,MAX_HEAP_SIZE=\"180M\",' cassandra-env.sh
+   sed -ig 's,#HEAP_NEWSIZE=.*,HEAP_NEWSIZE=\"100M\",' cassandra-env.sh
 	sed -ig '/jmxremote/s/^/#/' cassandra-env.sh
 fi
 
