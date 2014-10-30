@@ -54,7 +54,7 @@ fi
 
 if [ -z "${RHQ_METRICS_VERSION:-}" ]
 then
-	RHQ_METRICS_VERSION="0.2.3.20141020-M4"
+	RHQ_METRICS_VERSION="0.2.4"
 fi
 
 if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
