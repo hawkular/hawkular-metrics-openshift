@@ -2,7 +2,7 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-if [ -z "$CASSANDRA_VERSION" ]
+if [ -z "${CASSANDRA_VERSION:-}" ]
 then
 	CASSANDRA_VERSION="2.1.0"
 fi
@@ -36,7 +36,7 @@ else
 	sed -ig '/jmxremote/s/^/#/' cassandra-env.sh
 fi
 
-if [ -z "$WILDFLY_VERSION" ]
+if [ -z "${WILDFLY_VERSION:-}" ]
 then
 	WILDFLY_VERSION="8.1.0.Final"
 fi
@@ -52,8 +52,11 @@ else
    mv wildfly-* wildfly
 fi
 
+if [ -z "${RHQ_METRICS_VERSION:-}" ]
+then
+	RHQ_METRICS_VERSION="0.2.3.20141020-M4"
+fi
 
-RHQ_METRICS_VERSION='0.2.3.20141020-M4'
 if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
 then
    cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
