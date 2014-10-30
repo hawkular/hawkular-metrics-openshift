@@ -2,13 +2,18 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
+if [ -z "$CASSANDRA_VERSION" ]
+then
+	CASSANDRA_VERSION="2.1.0"
+fi
+
 if [ -d $OPENSHIFT_DATA_DIR/cassandra ]
 then
 	echo "Cassandra already installed"
 else
 	cd $OPENSHIFT_DATA_DIR
-	curl -OL http://downloads.datastax.com/community/dsc-cassandra-2.1.0-bin.tar.gz
-	tar -xzvf dsc-cassandra-2.1.0-bin.tar.gz
+	curl -OL "http://downloads.datastax.com/community/dsc-cassandra-${CASSANDRA_VERSION}-bin.tar.gz"
+	tar -xzvf "dsc-cassandra-${CASSANDRA_VERSION}-bin.tar.gz"
 	rm *.tar.gz
 	mv dsc-cassandra-* cassandra
 	mkdir cassandra-data
@@ -31,13 +36,18 @@ else
 	sed -ig '/jmxremote/s/^/#/' cassandra-env.sh
 fi
 
+if [ -z "$WILDFLY_VERSION" ]
+then
+	WILDFLY_VERSION="8.1.0.Final"
+fi
+
 if [ -d $OPENSHIFT_DATA_DIR/wildfly ]
 then
 	echo "Wildfly already installed"
 else	
 	cd $OPENSHIFT_DATA_DIR
-	curl -OL http://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.zip
-	unzip wildfly-8.1.0.Final.zip
+	curl -OL "http://download.jboss.org/wildfly/${WILDFLY_VERSION}/wildfly-${WILDFLY_VERSION}.zip"
+	unzip "wildfly-${WILDFLY_VERSION}.Final.zip"
    rm *.zip
    mv wildfly-* wildfly
 fi
