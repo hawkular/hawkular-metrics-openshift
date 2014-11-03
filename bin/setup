@@ -37,7 +37,7 @@ then
 else	
 	cd $OPENSHIFT_DATA_DIR
 	curl -OL "http://download.jboss.org/wildfly/${OPENSHIFT_WILDFLY_VERSION}/wildfly-${OPENSHIFT_WILDFLY_VERSION}.zip"
-	unzip "wildfly-${WILDFLY_VERSION}.zip"
+	unzip "wildfly-${OPENSHIFT_WILDFLY_VERSION}.zip"
    rm *.zip
    mv wildfly-* wildfly
 fi
