@@ -7,8 +7,8 @@ then
 	echo "Cassandra already installed"
 else
 	cd $OPENSHIFT_DATA_DIR
-	curl -OL "http://downloads.datastax.com/community/dsc-cassandra-${CASSANDRA_VERSION}-bin.tar.gz"
-	tar -xzvf "dsc-cassandra-${CASSANDRA_VERSION}-bin.tar.gz"
+	curl -OL "http://downloads.datastax.com/community/dsc-cassandra-${OPENSHIFT_CASSANDRA_VERSION}-bin.tar.gz"
+	tar -xzvf "dsc-cassandra-${OPENSHIFT_CASSANDRA_VERSION}-bin.tar.gz"
 	rm *.tar.gz
 	mv dsc-cassandra-* cassandra
 	mkdir cassandra-data
@@ -36,7 +36,7 @@ then
 	echo "Wildfly already installed"
 else	
 	cd $OPENSHIFT_DATA_DIR
-	curl -OL "http://download.jboss.org/wildfly/${WILDFLY_VERSION}/wildfly-${WILDFLY_VERSION}.zip"
+	curl -OL "http://download.jboss.org/wildfly/${OPENSHIFT_WILDFLY_VERSION}/wildfly-${OPENSHIFT_WILDFLY_VERSION}.zip"
 	unzip "wildfly-${WILDFLY_VERSION}.zip"
    rm *.zip
    mv wildfly-* wildfly
@@ -45,7 +45,7 @@ fi
 if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
 then
    cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-   curl -OL "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${RHQ_METRICS_VERSION}/rest-servlet-${RHQ_METRICS_VERSION}.war"
-   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${RHQ_METRICS_VERSION}/metrics-console-${RHQ_METRICS_VERSION}.war"
-   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${RHQ_METRICS_VERSION}/explorer-${RHQ_METRICS_VERSION}.war"
+   curl -OL "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/rest-servlet-${OPENSHIFT_RHQ_METRICS_VERSION}.war"
+   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/metrics-console-${OPENSHIFT_RHQ_METRICS_VERSION}.war"
+   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/explorer-${OPENSHIFT_RHQ_METRICS_VERSION}.war"
 fi
