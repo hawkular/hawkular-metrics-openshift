@@ -1,6 +1,13 @@
 #!/bin/bash -eu
 
-source $OPENSHIFT_CARTRIDGE_SDK_BASH
+#source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+function extractUrl()
+{
+	local url=$(curl --silent $1)
+	local url=`echo $url | grep war | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]'  | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | grep war`
+	echo $url
+}
 
 if [ -d $OPENSHIFT_DATA_DIR/cassandra ]
 then
@@ -45,7 +52,8 @@ fi
 if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
 then
    cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-   curl -OL "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/rest-servlet-${OPENSHIFT_RHQ_METRICS_VERSION}.war"
-   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/metrics-console-${OPENSHIFT_RHQ_METRICS_VERSION}.war"
-   curl -OL "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/explorer-${OPENSHIFT_RHQ_METRICS_VERSION}.war"
+
+   curl -OL $(extractUrl "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/")
+   curl -OL $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/")
+   curl -OL $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/")
 fi
