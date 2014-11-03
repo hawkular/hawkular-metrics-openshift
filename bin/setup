@@ -2,11 +2,6 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-if [ -z "${CASSANDRA_VERSION:-}" ]
-then
-	CASSANDRA_VERSION="2.1.0"
-fi
-
 if [ -d $OPENSHIFT_DATA_DIR/cassandra ]
 then
 	echo "Cassandra already installed"
@@ -36,11 +31,6 @@ else
 	sed -ig '/jmxremote/s/^/#/' cassandra-env.sh
 fi
 
-if [ -z "${WILDFLY_VERSION:-}" ]
-then
-	WILDFLY_VERSION="8.1.0.Final"
-fi
-
 if [ -d $OPENSHIFT_DATA_DIR/wildfly ]
 then
 	echo "Wildfly already installed"
@@ -50,11 +40,6 @@ else
 	unzip "wildfly-${WILDFLY_VERSION}.zip"
    rm *.zip
    mv wildfly-* wildfly
-fi
-
-if [ -z "${RHQ_METRICS_VERSION:-}" ]
-then
-	RHQ_METRICS_VERSION="0.2.4"
 fi
 
 if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
