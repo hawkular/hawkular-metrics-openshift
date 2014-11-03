@@ -15,8 +15,17 @@ function start() {
 
 function stop() {
    echo "Stopping RHQ Metrics cartridge"
-   kill `ps -ef | grep cassandra | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
-   kill `ps -ef | grep java | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+   PIDS_TO_KILL=`ps -ef | grep cassandra | grep -v grep | awk '{ print $2 }'`
+   if [ ! -z "$PIDS_TO_KILL" ]
+   then
+      kill $PIDS_TO_KILL > /dev/null 2>&1
+   fi
+
+   PIDS_TO_KILL=`ps -ef | grep java | grep -v grep | awk '{ print $2 }'`
+   if [ ! -z "$PIDS_TO_KILL" ]
+   then
+      kill  > /dev/null 2>&1
+   fi
 }
 
 function restart() {
