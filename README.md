@@ -1,7 +1,7 @@
-rhq-metrics-openshift
+RHQ Metrics Openshift Cartridge
 =====================
 
-RHQ Metrics cartridge was designed to allow the project to run on a small gear on OpenShift.
+RHQ Metrics cartridge was designed to allow the project to run on a small gear.
 
 ### Default Deployment
 
@@ -12,7 +12,7 @@ To deploy RHQ Metrics on OpenShift run the following command:
 
 ### Deployment Configuration
 
-Available environment variable to further configure the deployment
+Available environment variables to configure the deployment:
 
 ```
 OPENSHIFT_RHQ_METRICS_BACKEND
@@ -35,7 +35,7 @@ OPENSHIFT_WILDFLY_VERSION
 
 ### Sample Deployment with Options
 
-To alter the defaults presented above, use the env option:
+To alter default configuration, use env option:
 
 `rhc app create tester1 https://raw.githubusercontent.com/rhq-project/rhq-metrics-openshift/master/metadata/manifest.yml --env OPENSHIFT_RHQ_METRICS_BACKEND=cass OPENSHIFT_RHQ_METRICS_VERSION=0.2.5`
 
