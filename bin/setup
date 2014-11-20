@@ -56,7 +56,7 @@ then
       cd $OPENSHIFT_DATA_DIR
       git clone https://github.com/rhq-project/rhq-metrics.git
       cd rhq-metrics
-      mvn clean install -DskipTests
+      mvn -T 4 clean install -DskipTests
       cp rest-servlet/target/rhq-metric-rest*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
       cp ui/console/target/metrics-console-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
       cp ui/explorer/target/explorer-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
