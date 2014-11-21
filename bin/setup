@@ -66,8 +66,8 @@ then
    else
       cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
 
-      curl -OL $(extractUrl "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/")
-      curl -OL $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/")
-      curl -OL $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/")
+      wget -N $(extractUrl "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/")
+      wget -N $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/")
+      wget -N $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/")
    fi
 fi
