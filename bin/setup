@@ -48,26 +48,3 @@ else
    rm *.zip
    mv wildfly-* wildfly
 fi
-
-if [ -d $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments ]
-then
-   if [ "$OPENSHIFT_RHQ_METRICS_DISTRIBUTION" = "source" ]
-   then
-      cd $OPENSHIFT_DATA_DIR
-      git clone https://github.com/rhq-project/rhq-metrics.git
-      cd rhq-metrics
-      
-      mvn -T 4 -pl :rest-servlet,:rhq-metrics-core,:rhq-metrics-api install -DskipTests -Dmaven.test.skip=true
-      mvn -T 4 -pl :metrics-console,:explorer install -DskipTests -Dmaven.test.skip=true
-
-      cp rest-servlet/target/rhq-metric-rest*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-      cp ui/console/target/metrics-console-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-      cp ui/explorer/target/explorer-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-   else
-      cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-
-      wget -N $(extractUrl "http://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/")
-      wget -N $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/")
-      wget -N $(extractUrl "https://repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/")
-   fi
-fi
