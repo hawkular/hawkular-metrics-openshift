@@ -11,8 +11,8 @@ function start() {
          git clone https://github.com/rhq-project/rhq-metrics.git
          cd rhq-metrics
       
-         mvn -T 4 -pl :rest-servlet,:rhq-metrics-core,:rhq-metrics-api install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
-         mvn -T 4 -pl :metrics-console,:explorer install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
+         mvn -pl :rest-servlet,:rhq-metrics-core,:rhq-metrics-api install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
+         mvn -pl :metrics-console,:explorer install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
 
          cp rest-servlet/target/rhq-metric-rest*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
          cp ui/console/target/metrics-console-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
