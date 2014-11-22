@@ -2,13 +2,6 @@
 
 #source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-function extractUrl()
-{
-	local url=$(curl --silent $1)
-	local url=`echo $url | grep war | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]'  | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | grep war`
-	echo $url
-}
-
 if [ -d $OPENSHIFT_DATA_DIR/cassandra ]
 then
 	echo "Cassandra already installed"
