@@ -18,12 +18,15 @@ function start() {
          cd rhq-metrics
       
          mvn -T 4 -pl :rest-servlet,:rhq-metrics-core,:rhq-metrics-api install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
-         #mvn -T 2 -pl :metrics-console install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
-         #mvn -T 2 -pl :explorer install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
-
          cp rest-servlet/target/rhq-metric-rest*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
+         sleep 7
+         
+         mvn -pl :explorer install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
+         cp ui/explorer/target/explorer-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
+         sleep 7
+         
+         #mvn -T 2 -pl :metrics-console install -DskipTests -Dmaven.test.skip=true -Dmaven.repo.local=$OPENSHIFT_DATA_DIR/.m2/repository
          #cp ui/console/target/metrics-console-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
-         #cp ui/explorer/target/explorer-*.war $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
       else
          cd $OPENSHIFT_DATA_DIR/wildfly/standalone/deployments
 
