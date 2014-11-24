@@ -4,7 +4,7 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function extractUrl() {
 	local url=$(curl --silent $1)
-	local url=`echo $url | grep war | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]'  | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | grep war`
+	local url=`echo $url | grep -v sha1 | grep -v md5 | grep war | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]'  | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | grep war`
 	echo $url
 }
 
