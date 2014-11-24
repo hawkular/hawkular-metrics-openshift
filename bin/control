@@ -32,7 +32,7 @@ function start() {
 
          wget -N $(extractUrl "https://origin-repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/rest-servlet/${OPENSHIFT_RHQ_METRICS_VERSION}/")
          wget -N $(extractUrl "https://origin-repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/metrics-console/${OPENSHIFT_RHQ_METRICS_VERSION}/")
-         wget -N $(extractUrl "https://rigin-repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/")
+         wget -N $(extractUrl "https://origin-repository.jboss.org/nexus/content/repositories/public/org/rhq/metrics/explorer/${OPENSHIFT_RHQ_METRICS_VERSION}/")
       fi
    fi
    
