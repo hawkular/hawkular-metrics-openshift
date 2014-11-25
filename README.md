@@ -24,12 +24,12 @@ OPENSHIFT_RHQ_METRICS_VERSION
   - supported: 0.2.5 and above
 
 OPENSHIFT_CASSANDRA_VERSION
-  - default: 2.1.0
-  - supported: 2.1.0 and 2.1.1
+  - default: 2.1.1
+  - supported: 2.1.1
   
 OPENSHIFT_WILDFLY_VERSION
   - default: 8.2.0.Final
-  - supported: 8.1.0.Final, 8.1.1.Final, 8.2.0.Final
+  - supported: 8.2.0.Final
 ```
 
 
