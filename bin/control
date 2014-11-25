@@ -43,7 +43,7 @@ function start() {
 
    export CASSANDRA_CQL_PORT=19042
    export CASSANDRA_NODES=$OPENSHIFT_RHQM_IP
-   sleep 15
+   sleep 20
 
    $OPENSHIFT_DATA_DIR/wildfly/bin/standalone.sh -b $OPENSHIFT_RHQM_IP -bmanagement=$OPENSHIFT_RHQM_IP -Drhq-metrics.backend=$OPENSHIFT_RHQ_METRICS_BACKEND -Drhq-metrics.cassandra-nodes=$CASSANDRA_NODES -Drhq-metrics.cassandra-cql-port=$CASSANDRA_CQL_PORT 2>&1 &
 }
@@ -54,19 +54,19 @@ function stop() {
    PIDS_TO_KILL=`ps -ef | grep cassandra | grep -v grep | awk '{ print $2 }'`
    if [ ! -z "$PIDS_TO_KILL" ]
    then
-      kill "$PIDS_TO_KILL" > /dev/null 2>&1
+      kill $PIDS_TO_KILL > /dev/null 2>&1
    fi
 
    PIDS_TO_KILL=`ps -ef | grep standalone | grep -v grep | awk '{ print $2 }'`
    if [ ! -z "$PIDS_TO_KILL" ]
    then
-      kill "$PIDS_TO_KILL" > /dev/null 2>&1
+      kill $PIDS_TO_KILL > /dev/null 2>&1
    fi
 
    PIDS_TO_KILL=`ps -ef | grep java | grep -v grep | awk '{ print $2 }'`
    if [ ! -z "$PIDS_TO_KILL" ]
    then
-      kill "$PIDS_TO_KILL" > /dev/null 2>&1
+      kill $PIDS_TO_KILL > /dev/null 2>&1
    fi
 }
 
