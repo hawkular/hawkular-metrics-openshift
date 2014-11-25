@@ -28,8 +28,8 @@ OPENSHIFT_CASSANDRA_VERSION
   - supported: 2.1.1
   
 OPENSHIFT_WILDFLY_VERSION
-  - default: 8.2.0.Final
-  - supported: 8.2.0.Final
+  - default: 8.1.0.Final
+  - supported: 8.1.0.Final
 ```
 
 
