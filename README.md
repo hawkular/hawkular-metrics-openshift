@@ -16,7 +16,7 @@ Available environment variables to configure the deployment:
 
 ```
 OPENSHIFT_RHQ_METRICS_BACKEND
-  - default: mem
+  - default: cass
   - supported: mem (for memory) and cass (for cassandra)
   
 OPENSHIFT_RHQ_METRICS_VERSION
