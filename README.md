@@ -20,7 +20,7 @@ OPENSHIFT_RHQ_METRICS_BACKEND
   - supported: mem (for memory) and cass (for cassandra)
   
 OPENSHIFT_RHQ_METRICS_VERSION
-  - default: 0.2.5-SNAPSHOT
+  - default: 0.2.5
   - supported: 0.2.5 and above
 
 OPENSHIFT_CASSANDRA_VERSION
