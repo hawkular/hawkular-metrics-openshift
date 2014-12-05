@@ -55,4 +55,4 @@ Cassandra data is stored at `app-root/data/cassandra-data/`. Memory data is vola
 
 ### Notes
 
-1. Scaling of C* is not supported yet.
+1. Scaling of Cassandra is not supported yet.
