@@ -55,5 +55,4 @@ Cassandra data is stored at `app-root/data/cassandra-data/`. Memory data is vola
 
 ### Notes
 
-1. Scaling is not supported yet.
-2. RHQ Metrics version 0.2.4 is supported only with memory data store.
+1. Scaling of C* is not supported yet.
