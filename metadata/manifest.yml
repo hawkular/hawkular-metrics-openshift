@@ -2,12 +2,12 @@ Name: rhq-metrics
 Cartridge-Short-Name: RHQM
 Display-Name: RHQ Metrics
 Description: "RHQ Metrics"
-Version: '0.2.5'
+Version: '0.2.6'
 Source-Url:  https://github.com/rhq-project/rhq-metrics-openshift.git 
 License: Apache
 License-Url: http://www.apache.org/licenses/
 Vendor: JBoss
-Cartridge-Version: '0.2.5'
+Cartridge-Version: '0.2.6'
 Cartridge-Vendor: jboss
 Categories:
   - service
