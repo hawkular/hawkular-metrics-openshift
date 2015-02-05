@@ -20,7 +20,7 @@ OPENSHIFT_RHQ_METRICS_BACKEND
   - supported: mem (for memory) and cass (for cassandra)
   
 OPENSHIFT_RHQ_METRICS_VERSION
-  - default: 0.2.5
+  - default: 0.2.7
   - supported: 0.2.5 and above
 
 OPENSHIFT_CASSANDRA_VERSION
@@ -37,7 +37,7 @@ OPENSHIFT_WILDFLY_VERSION
 
 To alter default configuration, use env option:
 
-`rhc app create tester1 https://raw.githubusercontent.com/rhq-project/rhq-metrics-openshift/master/metadata/manifest.yml --env OPENSHIFT_RHQ_METRICS_BACKEND=cass OPENSHIFT_RHQ_METRICS_VERSION=0.2.5`
+`rhc app create tester1 https://raw.githubusercontent.com/rhq-project/rhq-metrics-openshift/master/metadata/manifest.yml --env OPENSHIFT_RHQ_METRICS_BACKEND=cass OPENSHIFT_RHQ_METRICS_VERSION=0.2.7`
 
 
 ### Cartridge Details
