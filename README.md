@@ -1,3 +1,6 @@
+# RETIRED AND NO LONGER MAINTAINED
+
+
 RHQ Metrics Openshift Cartridge
 =====================
 
